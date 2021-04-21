@@ -8,18 +8,17 @@ function SearchForm(props) {
                     <label className="mr-3">Search by employee:</label>
                     <input 
                         value={props.desiredName}
-                        onChange={props.handleInputChange}
+                        onChange={props.findEmployeeByName}
                         type="text"
                     />
                 </div>
                 <div className="form-group">
                     <label className="mr-3">Order by:</label>
                     <select onChange={props.handleOrderChange}>
-                        <option>Order</option> 
-                        <option>First Name</option>
-                        <option>Last Name</option>
-                        <option>Country</option>
-                        <option>Gender</option>
+                        <option value="0">Order</option> 
+                        <option value="1">First Name</option>
+                        <option value="2">Last Name</option>
+                        <option value="3">Country</option>
                     </select>
                 </div>
             </div>
