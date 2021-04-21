@@ -21,7 +21,6 @@ class EmployeeContainer extends Component {
             .then(res => {
                 // console.log(res.data.results)
                 this.setState({ results: res.data.results, employees: res.data.results})
-                console.log('state', this.state.results)
             })
             
             .catch(err => console.log(err));
