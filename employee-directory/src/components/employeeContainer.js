@@ -5,12 +5,14 @@ import Table from "../components/table"
 
 class EmployeeContainer extends Component {
     state = {
-        search: "",
-        results: []
+        number: "",
+        results: [],
+        desiredName: "",
+        sortBy: ""
     };
 
     componentDidMount() {
-        this.getEmployees('results=15');
+        this.getEmployees(this.state.number);
     };
 
     getEmployees = query => {
@@ -24,11 +26,19 @@ class EmployeeContainer extends Component {
             .catch(err => console.log(err));
     }
 
+    handleInputChange = event => {
+        const {value} = event.target;
+
+        this.setState({
+            desiredName: value
+        })
+    }
+
     render() {
         return (
             <div className="container">
-                <Search results={this.state.results}/>
-                <Table results={this.state.results} />
+                <Search results={this.state.results} handleInputChange={this.handleInputChange} desiredName={this.state.desiredName}/>
+                <Table results={this.state.results} desiredName={this.state.desiredName} />
             </div>
             
         )
