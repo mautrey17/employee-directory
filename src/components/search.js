@@ -13,11 +13,14 @@ function SearchForm(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <label className="mr-3">Search by employee:</label>
-                    <input 
-                        
-                        type="text"
-                    />
+                    <label className="mr-3">Order by:</label>
+                    <select onChange={props.handleOrderChange}>
+                        <option>Order</option> 
+                        <option>First Name</option>
+                        <option>Last Name</option>
+                        <option>Country</option>
+                        <option>Gender</option>
+                    </select>
                 </div>
             </div>
         </form>

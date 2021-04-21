@@ -8,7 +8,7 @@ class EmployeeContainer extends Component {
         number: "",
         results: [],
         desiredName: "",
-        sortBy: ""
+        order: ""
     };
 
     componentDidMount() {
@@ -33,12 +33,29 @@ class EmployeeContainer extends Component {
             desiredName: value
         })
     }
+    handleOrderChange = event => {
+        const {value} = event.target;
+
+        this.setState({
+            order: value
+        })
+    }
 
     render() {
         return (
             <div className="container">
-                <Search results={this.state.results} handleInputChange={this.handleInputChange} desiredName={this.state.desiredName}/>
-                <Table results={this.state.results} desiredName={this.state.desiredName} />
+                <Search 
+                    results={this.state.results} 
+                    handleInputChange={this.handleInputChange} 
+                    desiredName={this.state.desiredName} 
+                    order={this.state.order}
+                    handleOrderChange={this.handleOrderChange}
+                />
+                <Table 
+                    results={this.state.results} 
+                    desiredName={this.state.desiredName}
+                    order={this.state.order} 
+                />
             </div>
             
         )
