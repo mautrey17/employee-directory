@@ -14,7 +14,12 @@ class EmployeeContainer extends Component {
 
     getEmployees = query => {
         API.search(query)
-            .then(res => this.setState({ results: res.data.data}))
+            .then(res => {
+                // console.log(res.data.results)
+                this.setState({ results: res.data.results})
+                console.log('state', this.state.results)
+            })
+            
             .catch(err => console.log(err));
     }
 
