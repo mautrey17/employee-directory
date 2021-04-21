@@ -29,7 +29,6 @@ class EmployeeContainer extends Component {
 
     handleOrderChange = event => {
         const {value} = event.target;
-        console.log(value)
         switch(value) {
             case "1": return this.orderByFirstName();
             case "2": return this.orderByLastName();
@@ -75,8 +74,6 @@ class EmployeeContainer extends Component {
     findEmployeeByName = event => {
         const {value} = event.target;
         let filteredArr = this.state.results.filter(employee => employee.name.first.toLowerCase().includes(value) || employee.name.last.toLowerCase().includes(value))
-
-        console.log(value)
 
         this.setState({
             employees: filteredArr,
