@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Search from "../components/search";
+import Table from "../components/table"
 
 class EmployeeContainer extends Component {
     state = {
@@ -25,9 +26,9 @@ class EmployeeContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Search results={this.state.results}/>
-                
+                <Table results={this.state.results} />
             </div>
             
         )
